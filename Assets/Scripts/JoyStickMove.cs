@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class JoyStickMove : MonoBehaviour
 {
-    //private SteamVR_Controller.Device Controller;
-    //private SteamVR_TrackedController Controller;
-
     public GameObject camera;
     public GameObject cameraRig;
 
