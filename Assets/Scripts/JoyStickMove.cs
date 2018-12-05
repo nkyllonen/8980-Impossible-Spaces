@@ -8,8 +8,10 @@ public class JoyStickMove : MonoBehaviour
     //private SteamVR_TrackedController Controller;
 
     public GameObject camera;
+    public GameObject cameraRig;
 
     public float speed = 1.0f;
+    public float rotationSpeed = 25.0f;
 
     // Use this for initialization
     void Start ()
@@ -20,16 +22,15 @@ public class JoyStickMove : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        // if joystick is moved more than .15, print the joystick coordinates
-        /*if (Mathf.Abs(Controller.controllerState.rAxis2.x) > 0.15 || Mathf.Abs(Controller.controllerState.rAxis2.y) > 0.15)
-        {
-            Debug.Log("Joystick coordinates: " + Controller.controllerState.rAxis2.x + " " + Controller.controllerState.rAxis2.y);
-        }
-        */
-        //Debug.Log("Parent: " + this.transform.parent.name);
-        //Debug.Log("Update?");
+        // update camera's position
+        Vector3 forward = camera.transform.forward;
+        Debug.Log(Input.GetAxis("Vertical"));
+        cameraRig.transform.position += forward * speed * Time.deltaTime * Input.GetAxis("Vertical");
+        //float translation = Time.deltaTime * Input.GetAxis("Vertical") * speed;
+        //camera.transform.Translate(0, 0, translation);
 
-        camera.transform.position += new Vector3(0.0f, 0.0f, speed) * Time.deltaTime * Input.GetAxis("Vertical");
-        camera.transform.position += new Vector3(speed, 0.0f, 0.0f) * Time.deltaTime * Input.GetAxis("Horizontal");
+        // update camera's rotation
+        float rotation = Time.deltaTime * Input.GetAxis("Horizontal") * rotationSpeed;
+        cameraRig.transform.Rotate(0, rotation, 0);
     }
 }
