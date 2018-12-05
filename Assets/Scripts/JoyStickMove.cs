@@ -18,7 +18,7 @@ public class JoyStickMove : MonoBehaviour
 	}
 	
 	// Update is called once per frame
-	private void Update ()
+	void Update ()
     {
         // if joystick is moved more than .15, print the joystick coordinates
         /*if (Mathf.Abs(Controller.controllerState.rAxis2.x) > 0.15 || Mathf.Abs(Controller.controllerState.rAxis2.y) > 0.15)
@@ -27,7 +27,7 @@ public class JoyStickMove : MonoBehaviour
         }
         */
         //Debug.Log("Parent: " + this.transform.parent.name);
-        Debug.Log("Update?");
+        //Debug.Log("Update?");
 
         camera.transform.position += new Vector3(0.0f, 0.0f, speed) * Time.deltaTime * Input.GetAxis("Vertical");
         camera.transform.position += new Vector3(speed, 0.0f, 0.0f) * Time.deltaTime * Input.GetAxis("Horizontal");
