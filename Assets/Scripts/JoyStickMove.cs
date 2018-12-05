@@ -22,12 +22,10 @@ public class JoyStickMove : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        // update camera's position
-        Vector3 forward = camera.transform.forward;
-        Debug.Log(Input.GetAxis("Vertical"));
+        // update cameraRig's position using the camera's forward vector
+        //      - ignoring y axis by projecting forward onto the plane of the floor
+        Vector3 forward = Vector3.ProjectOnPlane(camera.transform.forward, new Vector3(0.0f, 1.0f, 0.0f));
         cameraRig.transform.position += forward * speed * Time.deltaTime * Input.GetAxis("Vertical");
-        //float translation = Time.deltaTime * Input.GetAxis("Vertical") * speed;
-        //camera.transform.Translate(0, 0, translation);
 
         // update camera's rotation
         float rotation = Time.deltaTime * Input.GetAxis("Horizontal") * rotationSpeed;
