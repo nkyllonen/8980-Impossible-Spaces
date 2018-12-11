@@ -11,6 +11,9 @@ C:\Program Files (x86)\Steam\steamapps\common\SteamVR\bin\win64
 ```
 
 ### Third Party Assests
+SteamVR for Windows Mixed Reality
+- available on the Steam Asset Store
+
 Pack Gesta Furniture #1
 - Unity Asset Store: https://assetstore.unity.com/packages/3d/props/furniture/pack-gesta-furniture-1-28237
 
